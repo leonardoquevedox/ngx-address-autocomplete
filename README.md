@@ -1,8 +1,5 @@
-<a href="https://github.com/leopq/ngx-address-autocomplete">
-  <h1 align="center">Ngx-address-autocomplete</h1>
-</a>
-
-[![N|Solid](https://imgur.com/LNOYczf.png)](https://github.com/leopq)
+# Ngx-address-autocomplete
+[![basic-merchandising](https://imgur.com/LNOYczf.png)](https://github.com/leopq)
 
 
 ## Hi, there!
