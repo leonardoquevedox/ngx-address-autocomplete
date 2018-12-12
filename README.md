@@ -40,9 +40,9 @@ In your template, you can declare the ngx-address-autocomplete as the following:
 
 In your TS class, then, you can handle the select event:
 ```typescript
-export default class AddressPage{
+export default class AddressPage {
 
-    constructor() { }
+    (...)
 
     onAddressSelected(e) {
       console.log(e.place) // Native Google Place object
