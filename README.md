@@ -1,10 +1,11 @@
 # Ngx-address-autocomplete
 [![basic-merchandising](https://imgur.com/LNOYczf.png)](https://github.com/leopq)
 
-
 ## Hi, there!
 
 > Ngx-address-autocomplete is a self contained address autocomplete directive for Angular 2+ based on the Google Places Autcomplete API. Along with initializing the autocomplete into any  input, the directive also parses the address object into an [human-friendly](#address-data-structure) format.
+
+**Disclaimer**: I use this module for personal projects, which means it is designed to fulfill their specific use cases. The code I develop is crafted with reuse and generalism in mind, still, it may or may not fulfill for your requirements. In case it does not, please feel free to submit a pull request, create a fork or contact me at lpachecoquevedo@gmail.com so we can figure something out together. Thank you for reading this!
 
 ## Installing
 
