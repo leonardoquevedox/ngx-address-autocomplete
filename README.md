@@ -76,3 +76,5 @@ Description of address returned from the direction on user selection of address:
 * Any doubts? Fell free to open an issue.
 * Improvements? Pull requests are always come!
 * Suggestions? Of course: Let's [talk](https://twitter.com/leopq)!
+
+##### MIT @ Leonardo Quevedo. 2018.
