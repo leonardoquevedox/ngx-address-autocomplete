@@ -35,7 +35,7 @@ Then, just define masks in inputs.
 
 In your template, you can declare the ngx-address-autocomplete as the following:
 ```html
-<input type='text' ngx-address-autocomplete (onSelect)='onAddressSelected($event)' >
+<input type="text" ngx-address-autocomplete (onSelect)="onAddressSelected($event)" >
 ```
 
 In your TS class, then, you can handle the select event:
