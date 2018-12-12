@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {},
+        "moduleResolution": "node",
+        "target": "es5",
+        "module": "es2015",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "suppressImplicitAnyIndexErrors": true,
+        "allowUnreachableCode": false,
+        "declaration": true,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noStrictGenericChecks": false
+    },
+    "include": [
+        "src/*.ts",
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "atom": {
+        "rewriteTsconfig": false
+    }
+}
