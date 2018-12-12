@@ -2,7 +2,7 @@
   <h1 align="center">Ngx-address-autocomplete</h1>
 </a>
 
-[![N|Solid](https://imgur.com/LNOYczf.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](https://imgur.com/LNOYczf.png)](https://github.com/leopq)
 
 
 ## Hi, there!
