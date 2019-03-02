@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('ngx-dynamic-mask', ['exports', '@angular/common', '@angular/core'], factory) :
-    (factory((global['ngx-dynamic-mask'] = {}),global.ng.common,global.ng.core));
+    typeof define === 'function' && define.amd ? define('ngx-address-autocomplete', ['exports', '@angular/common', '@angular/core'], factory) :
+    (factory((global['ngx-address-autocomplete'] = {}),global.ng.common,global.ng.core));
 }(this, (function (exports,common,core) { 'use strict';
 
     /*! *****************************************************************************
@@ -108,54 +108,60 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    var NgxAddressAutocomplete = /** @class */ (function () {
-        function NgxAddressAutocomplete() {
+    var NgxAddressAutocompleteDirective = /** @class */ (function () {
+        function NgxAddressAutocompleteDirective() {
             this.MAX_RADIUS = 100000;
             this.ELEMENT_INITIALIZATION_DELAY = 2000;
             this.onSelect = new core.EventEmitter();
             this.options = {};
             this.DEFAULT_KEY_MAPPING = {
-                'formatted_address': 'vicinity',
-                'street': 'street',
-                'street_number': 'number',
-                'sublocality_level_1': 'neighbourhood',
-                'administrative_area_level_2': 'city',
-                'postal_code': 'postalCode',
-                'administrative_area_level_1': 'state',
-                'country': 'country'
+                formatted_address: "vicinity",
+                street: "street",
+                street_number: "number",
+                sublocality_level_1: "neighbourhood",
+                administrative_area_level_2: "city",
+                postal_code: "postalCode",
+                administrative_area_level_1: "state",
+                country: "country"
             };
         }
         /**
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.ngOnInit = /**
+        NgxAddressAutocompleteDirective.prototype.ngOnInit = /**
          * @return {?}
          */
             function () {
                 var _this = this;
-                setTimeout(function () {
+                setTimeout(( /**
+                 * @return {?}
+                 */function () {
                     /** @type {?} */
                     var inputId = _this.uniqueId;
                     /** @type {?} */
                     var div = document.querySelector("[ngx-address-autocomplete=" + inputId + "]");
                     if (!div)
-                        console.warn(NgxAddressAutocomplete.name + ': Whoops! We were unable to find any divs with the id provided :(');
+                        console.warn(NgxAddressAutocompleteDirective.name +
+                            ": Whoops! We were unable to find any divs with the id provided :(");
                     /** @type {?} */
-                    var divIsAnInput = div && div.nodeName == 'INPUT';
+                    var divIsAnInput = div && div.nodeName == "INPUT";
                     /** @type {?} */
-                    var input = divIsAnInput ? div : (document.querySelector("[ngx-address-autocomplete=" + inputId + "] input"));
+                    var input = divIsAnInput
+                        ? div
+                        : document.querySelector("[ngx-address-autocomplete=" + inputId + "] input");
                     if (!input)
-                        console.warn(NgxAddressAutocomplete.name + ': Whoops! Be sure to add the directive only to inputs or divs with input children )');
+                        console.warn(NgxAddressAutocompleteDirective.name +
+                            ": Whoops! Be sure to add the directive only to inputs or divs with input children )");
                     _this.generateAutocompleteInput(input);
-                }, this.ELEMENT_INITIALIZATION_DELAY);
+                }), this.ELEMENT_INITIALIZATION_DELAY);
             };
         /**
          * @param {?} input
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.generateAutocompleteInput = /**
+        NgxAddressAutocompleteDirective.prototype.generateAutocompleteInput = /**
          * @param {?} input
          * @return {?}
          */
@@ -176,7 +182,7 @@
                                 console.warn(e_1);
                                 return [3 /*break*/, 4];
                             case 3:
-                                if (coordinates) { /* In case the coordinates were obtained successfully */
+                                if (coordinates) {
                                     /* In case the coordinates were obtained successfully */
                                     autocomplete_1 = new google.maps.places.Autocomplete(input, this.options);
                                     circle = new google.maps.Circle({
@@ -184,13 +190,15 @@
                                         radius: this.options.radius || this.MAX_RADIUS
                                     });
                                     autocomplete_1.setBounds(circle.getBounds());
-                                    autocomplete_1.addListener('place_changed', function () {
+                                    autocomplete_1.addListener("place_changed", ( /**
+                                     * @return {?}
+                                     */function () {
                                         /** @type {?} */
                                         var place = autocomplete_1.getPlace();
                                         /** @type {?} */
                                         var address = _this.parseAddress(place);
                                         _this.onSelect.emit({ place: place, address: address });
-                                    });
+                                    }));
                                 }
                                 return [7 /*endfinally*/];
                             case 4: return [2 /*return*/];
@@ -201,20 +209,30 @@
         /**
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.getUserLocation = /**
+        NgxAddressAutocompleteDirective.prototype.getUserLocation = /**
          * @return {?}
          */
             function () {
                 return __awaiter(this, void 0, void 0, function () {
                     var _this = this;
                     return __generator(this, function (_a) {
-                        return [2 /*return*/, new Promise(function (resolve, reject) {
-                                window.navigator.geolocation.getCurrentPosition(function (location) {
+                        return [2 /*return*/, new Promise(( /**
+                                 * @param {?} resolve
+                                 * @param {?} reject
+                                 * @return {?}
+                                 */function (resolve, reject) {
+                                window.navigator.geolocation.getCurrentPosition(( /**
+                                 * @param {?} location
+                                 * @return {?}
+                                 */function (location) {
                                     resolve(_this.getLatLngFrom(location));
-                                }, function (err) {
+                                }), ( /**
+                                 * @param {?} err
+                                 * @return {?}
+                                 */function (err) {
                                     reject(err);
-                                });
-                            })];
+                                }));
+                            }))];
                     });
                 });
             };
@@ -222,30 +240,36 @@
          * @param {?} location
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.getLatLngFrom = /**
+        NgxAddressAutocompleteDirective.prototype.getLatLngFrom = /**
          * @param {?} location
          * @return {?}
          */
             function (location) {
                 /** @type {?} */
-                var coordinates = typeof google !== 'undefined' ? new google.maps.LatLng(location.coords.latitude, location.coords.longitude) : this.createFallbackCoordinates(location);
+                var coordinates = typeof google !== "undefined"
+                    ? new google.maps.LatLng(location.coords.latitude, location.coords.longitude)
+                    : this.createFallbackCoordinates(location);
                 return coordinates;
             };
         /**
          * @param {?} nativeCoordinates
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.createFallbackCoordinates = /**
+        NgxAddressAutocompleteDirective.prototype.createFallbackCoordinates = /**
          * @param {?} nativeCoordinates
          * @return {?}
          */
             function (nativeCoordinates) {
-                nativeCoordinates.lat = function () {
+                nativeCoordinates.lat = ( /**
+                 * @return {?}
+                 */function () {
                     return this.coords.latitude;
-                };
-                nativeCoordinates.lng = function () {
+                });
+                nativeCoordinates.lng = ( /**
+                 * @return {?}
+                 */function () {
                     return this.coords.longitude;
-                };
+                });
                 return nativeCoordinates;
             };
         /**
@@ -253,7 +277,7 @@
          * @param {?} addressComponentCode
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.getAddressElement = /**
+        NgxAddressAutocompleteDirective.prototype.getAddressElement = /**
          * @param {?} gmapsAddressComponent
          * @param {?} addressComponentCode
          * @return {?}
@@ -261,17 +285,22 @@
             function (gmapsAddressComponent, addressComponentCode) {
                 /** @type {?} */
                 var value;
-                gmapsAddressComponent.map(function (element) {
-                    if (element.types && element.types.indexOf && (element.types.indexOf(addressComponentCode) > -1))
+                gmapsAddressComponent.map(( /**
+                 * @param {?} element
+                 * @return {?}
+                 */function (element) {
+                    if (element.types &&
+                        element.types.indexOf &&
+                        element.types.indexOf(addressComponentCode) > -1)
                         value = element.short_name || element.long_name;
-                });
+                }));
                 return value;
             };
         /**
          * @param {?} place
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.getPlaceLatLng = /**
+        NgxAddressAutocompleteDirective.prototype.getPlaceLatLng = /**
          * @param {?} place
          * @return {?}
          */
@@ -286,14 +315,15 @@
          * @param {?=} keyMapping
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.getAddressFromPlace = /**
+        NgxAddressAutocompleteDirective.prototype.getAddressFromPlace = /**
          * @param {?} place
          * @param {?=} keyMapping
          * @return {?}
          */
             function (place, keyMapping) {
                 if (!place || !place.geometry) {
-                    console.warn(NgxAddressAutocomplete.name + ': Whoops! It looks like the geometry property is missing from this place.');
+                    console.warn(NgxAddressAutocompleteDirective.name +
+                        ": Whoops! It looks like the geometry property is missing from this place.");
                     return false;
                 }
                 /** @type {?} */
@@ -307,7 +337,7 @@
                     var infoIsRequired = addressKeys[infoType];
                     if (infoIsRequired) {
                         /** @type {?} */
-                        var infoValue = place.address_components[i]['long_name'];
+                        var infoValue = place.address_components[i]["long_name"];
                         address[addressKeys[infoType]] = infoValue;
                     }
                 }
@@ -318,7 +348,7 @@
          * @param {?} place
          * @return {?}
          */
-        NgxAddressAutocomplete.prototype.parseAddress = /**
+        NgxAddressAutocompleteDirective.prototype.parseAddress = /**
          * @param {?} place
          * @return {?}
          */
@@ -330,37 +360,38 @@
                 /** @type {?} */
                 var address = {};
                 /* Parses address */
-                address.streetNumber = this.getAddressElement(rawAddress, 'street_number');
+                address.streetNumber = this.getAddressElement(rawAddress, "street_number");
                 address.location = this.getPlaceLatLng(place);
-                address.street = this.getAddressElement(rawAddress, 'route');
-                address.number = this.getAddressElement(rawAddress, 'street_number');
-                address.neighbourhood = this.getAddressElement(rawAddress, 'sublocality');
-                address.city = this.getAddressElement(rawAddress, 'administrative_area_level_2');
-                address.state = this.getAddressElement(rawAddress, 'administrative_area_level_1');
-                address.country = this.getAddressElement(rawAddress, 'country');
-                address.postalCode = this.getAddressElement(rawAddress, 'postal_code');
-                if (address.streetNumber)
-                    address.street = address.street + ', ' + address.streetNumber;
+                address.street = this.getAddressElement(rawAddress, "route");
+                address.number = this.getAddressElement(rawAddress, "street_number");
+                address.neighbourhood = this.getAddressElement(rawAddress, "sublocality");
+                address.city = this.getAddressElement(rawAddress, "administrative_area_level_2");
+                address.state = this.getAddressElement(rawAddress, "administrative_area_level_1");
+                address.country = this.getAddressElement(rawAddress, "country");
+                address.postalCode = this.getAddressElement(rawAddress, "postal_code");
+                /** @type {?} */
+                var streetAlreadyHasNumber = address.street && !isNaN(parseInt(address.street.split(",")[1]));
+                if (address.streetNumber && !streetAlreadyHasNumber)
+                    address.street = address.street + ", " + address.streetNumber;
                 return address;
             };
-        NgxAddressAutocomplete.decorators = [
+        NgxAddressAutocompleteDirective.decorators = [
             { type: core.Directive, args: [{
-                        selector: '[ngx-address-autocomplete]'
+                        selector: "[ngx-address-autocomplete]"
                     },] }
         ];
-        /** @nocollapse */
-        NgxAddressAutocomplete.ctorParameters = function () { return []; };
-        NgxAddressAutocomplete.propDecorators = {
-            uniqueId: [{ type: core.Input, args: ['ngx-address-autocomplete',] }],
+        NgxAddressAutocompleteDirective.ctorParameters = function () { return []; };
+        NgxAddressAutocompleteDirective.propDecorators = {
+            uniqueId: [{ type: core.Input, args: ["ngx-address-autocomplete",] }],
             onSelect: [{ type: core.Output }],
-            options: [{ type: core.Input, args: ['options',] }]
+            options: [{ type: core.Input, args: ["options",] }]
         };
-        return NgxAddressAutocomplete;
+        return NgxAddressAutocompleteDirective;
     }());
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     var NgxAddressAutocompleteModule = /** @class */ (function () {
         function NgxAddressAutocompleteModule() {
@@ -368,8 +399,8 @@
         NgxAddressAutocompleteModule.decorators = [
             { type: core.NgModule, args: [{
                         imports: [common.CommonModule],
-                        declarations: [NgxAddressAutocomplete],
-                        exports: [NgxAddressAutocomplete]
+                        declarations: [NgxAddressAutocompleteDirective],
+                        exports: [NgxAddressAutocompleteDirective]
                     },] }
         ];
         return NgxAddressAutocompleteModule;
@@ -377,19 +408,19 @@
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     /**
      * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
 
     exports.NgxAddressAutocompleteModule = NgxAddressAutocompleteModule;
-    exports.ɵa = NgxAddressAutocomplete;
+    exports.NgxAddressAutocompleteDirective = NgxAddressAutocompleteDirective;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
 
-//# sourceMappingURL=ngx-dynamic-mask.umd.js.map
+//# sourceMappingURL=ngx-address-autocomplete.umd.js.map
