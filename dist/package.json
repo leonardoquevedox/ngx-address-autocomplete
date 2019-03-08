@@ -1,6 +1,6 @@
 {
   "name": "ngx-address-autocomplete",
-  "version": "1.0.0-rc28",
+  "version": "1.0.0-rc30",
   "description": "Simple authentication state handler for Angular.io.",
   "main": "bundles/ngx-address-autocomplete.umd.js",
   "repository": {
